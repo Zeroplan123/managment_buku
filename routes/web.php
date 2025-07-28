@@ -30,5 +30,6 @@ Route::get('/about', function() {
     return view('about');
 })->name('about');
 
+Route::delete('/buku/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
 
 require __DIR__.'/auth.php';

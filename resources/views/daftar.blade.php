@@ -24,11 +24,18 @@
                             <td class="px-4 py-2">{{ $item->tahun_terbit }}</td>
                             <td class="px-4 py-2">{{ $item->penerbit }}</td>
                             <td class="px-4 py-2">{{ $item->deskripsi }}</td>
-                            <td class="px-4 py-2">
+                            <td class="px-4 py-2 gap-4 flex">
                              <a href="{{ route('buku.edit', $item->id) }}">
                                  <button class="bg-blue-500 hover:bg-blue-600 text-dark px-4 py-1 rounded shadow">
                                     Edit
                                  </button>
+                             </a>
+                             <a href="#">
+                                <form action="{{ route('buku.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin hapus data ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger bg-blue-500 hover:bg-blue-600 text-dark px-4 py-1 rounded shadow">Hapus</button>
+                                </form>
                              </a>
                             </td>
                         </tr>
